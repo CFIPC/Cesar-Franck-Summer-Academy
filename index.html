@@ -77,12 +77,12 @@
                 </a>
 
                 <nav class="hidden lg:flex items-center space-x-5 xl:space-x-6 ml-8 font-medium">
-                    <a href="#about" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-colors">About</a>
-                    <a href="#leadership" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-colors">Leadership</a>
-                    <a href="#professors" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-colors">Professors</a>
-                    <a href="#tuition" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-colors">Masterclasses</a>
-                    <a href="#concerts" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-colors">Concerts</a>
-                    <a href="#venue" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-colors">Venue & Shuttles</a>
+                    <a href="#about" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5 inline-block">About</a>
+                    <a href="#leadership" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5 inline-block">Leadership</a>
+                    <a href="#professors" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5 inline-block">Professors</a>
+                    <a href="#tuition" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5 inline-block">Masterclasses</a>
+                    <a href="#concerts" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5 inline-block">Concerts</a>
+                    <a href="#venue" class="text-[11px] uppercase tracking-wider text-neo-muted hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5 inline-block">Venue & Shuttles</a>
                 </nav>
 
                 <div class="hidden lg:flex items-center gap-4">
@@ -100,13 +100,13 @@
         </div>
 
         <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-neo-rose px-6 py-6 space-y-4 absolute w-full shadow-xl">
-            <a href="#about" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium">About</a>
-            <a href="#leadership" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium">Leadership</a>
-            <a href="#professors" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium">Professors</a>
-            <a href="#tuition" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium">Masterclasses</a>
-            <a href="#concerts" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium">Concerts</a>
-            <a href="#venue" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium">Venue</a>
-            <a href="#apply" class="block mt-6 text-center py-3 rounded-full bg-neo-terracotta text-white text-xs uppercase tracking-widest font-medium">Apply Now</a>
+            <a href="#about" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5">About</a>
+            <a href="#leadership" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5">Leadership</a>
+            <a href="#professors" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5">Professors</a>
+            <a href="#tuition" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5">Masterclasses</a>
+            <a href="#concerts" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5">Concerts</a>
+            <a href="#venue" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium hover:text-neo-terracotta transition-all duration-200 transform hover:-translate-y-0.5">Venue</a>
+            <a href="#apply" class="block mt-6 text-center py-3 rounded-full bg-neo-terracotta text-white text-xs uppercase tracking-widest font-medium hover:bg-neo-terracotta_dark transition-all duration-200 transform hover:-translate-y-0.5">Apply Now</a>
         </div>
     </header>
 
@@ -815,6 +815,12 @@
         
         if (mobileBtn && mobileMenu) {
             mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
         }
 
         function selectPackage(name) {
