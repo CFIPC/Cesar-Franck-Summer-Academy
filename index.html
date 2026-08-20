@@ -4,17 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>César Franck Summer Academy | Château d'Acoz</title>
-    
-    <!-- Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
         tailwind.config = {
@@ -22,31 +16,21 @@
                 extend: {
                     colors: {
                         neo: {
-                            base: '#FBF9F5',
-                            cream: '#F4EFEB',
-                            card: '#FFFFFF',
+                            cream: '#FBF9F5',
+                            sand: '#F4EFEB',
+                            rose: '#EADCD6',
                             terracotta: '#8C4A32',
-                            terracottaDark: '#6E3723',
-                            rose: '#D8C2BC',
-                            roseLight: '#F3ECEA',
-                            charcoal: '#2D2826',
-                            muted: '#6E6562',
-                            gold: '#C59B27',
-                            goldDark: '#9E7A1B'
+                            terracotta_dark: '#6E3824',
+                            charcoal: '#231F20',
+                            muted: '#655C58',
+                            gold: '#C5A059',
+                            gold_dark: '#9A7A3A',
+                            plum: '#4A2E35'
                         }
                     },
                     fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-8px)' },
-                        }
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Outfit', 'sans-serif'],
                     }
                 }
             }
@@ -56,91 +40,71 @@
     <style>
         body {
             background-color: #FBF9F5;
-            color: #2D2826;
-            overflow-x: hidden;
+            color: #231F20;
         }
-
-        .neoclass-card {
+        .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(140, 74, 50, 0.12);
-            box-shadow: 0 10px 30px -5px rgba(45, 40, 38, 0.05);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(234, 220, 214, 0.6);
+            box-shadow: 0 10px 30px -10px rgba(140, 74, 50, 0.06);
         }
-        
-        .neoclass-card:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(140, 74, 50, 0.12);
-            border-color: rgba(140, 74, 50, 0.25);
+        .glass-card-accent {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(244, 239, 235, 0.9) 100%);
+            border: 1.5px solid #C5A059;
+            box-shadow: 0 15px 35px -10px rgba(197, 160, 89, 0.15);
         }
-
         .text-gradient {
-            background: linear-gradient(135deg, #8C4A32 0%, #C59B27 100%);
+            background: linear-gradient(135deg, #8C4A32 0%, #C5A059 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        ::-webkit-scrollbar {
-            width: 8px;
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        ::-webkit-scrollbar-track {
-            background: #FBF9F5; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D8C2BC; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #8C4A32; 
+        .hover-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -15px rgba(140, 74, 50, 0.12);
         }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-neo-terracotta selection:text-white">
 
-    <header class="fixed w-full top-0 z-50 bg-[#FBF9F5]/90 backdrop-blur-xl border-b border-neo-rose/40 transition-all duration-300">
+    <header class="sticky top-0 z-50 bg-neo-cream/90 backdrop-blur-md border-b border-neo-rose/50 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                
-                <!-- Brand -->
-                <a href="#hero" class="flex items-center gap-4 group">
-                    <div class="w-11 h-11 rounded-full border border-neo-gold/50 bg-neo-roseLight overflow-hidden flex items-center justify-center shadow-sm group-hover:border-neo-gold transition-colors duration-500">
-                        <img src="logo.png" alt="CF Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/F3ECEA/8C4A32?text=CF';">
+                <a href="#hero" class="flex items-center gap-3.5 group">
+                    <div class="w-11 h-11 rounded-full border border-neo-gold/40 bg-neo-sand flex items-center justify-center shadow-sm group-hover:border-neo-terracotta transition-colors">
+                        <span class="font-serif text-xl font-bold text-neo-terracotta">CF</span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-serif text-xl tracking-wider text-neo-charcoal font-bold group-hover:text-neo-terracotta transition-colors leading-none">CÉSAR FRANCK</span>
-                        <span class="text-[9px] uppercase tracking-[0.3em] text-neo-muted font-semibold mt-1.5">Summer Academy</span>
+                        <span class="font-serif text-lg tracking-wider text-neo-charcoal font-bold group-hover:text-neo-terracotta transition-colors leading-none">CÉSAR FRANCK</span>
+                        <span class="text-[9px] uppercase tracking-widest text-neo-terracotta font-semibold mt-1">Summer Academy</span>
                     </div>
                 </a>
 
-                <!-- Desktop Nav -->
                 <nav class="hidden lg:flex items-center space-x-7">
-                    <a href="#about" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta transition-colors font-medium">About</a>
-                    <a href="#leadership" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta transition-colors font-medium">Leadership</a>
-                    <a href="#professors" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta transition-colors font-medium">Professors</a>
-                    <a href="#tuition" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta transition-colors font-medium">Masterclasses</a>
-                    <a href="#concerts" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta transition-colors font-medium">Concerts</a>
-                    <a href="#venue" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta transition-colors font-medium">Venue</a>
+                    <a href="#about" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta font-medium transition-colors">About</a>
+                    <a href="#leadership" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta font-medium transition-colors">Leadership</a>
+                    <a href="#professors" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta font-medium transition-colors">Professors</a>
+                    <a href="#tuition" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta font-medium transition-colors">Masterclasses</a>
+                    <a href="#concerts" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta font-medium transition-colors">Concerts</a>
+                    <a href="#venue" class="text-xs uppercase tracking-widest text-neo-muted hover:text-neo-terracotta font-medium transition-colors">Venue & Shuttles</a>
                 </nav>
 
-                <!-- CTA -->
                 <div class="hidden lg:flex items-center gap-4">
-                    <a href="#apply" class="px-6 py-2.5 rounded-full bg-neo-terracotta text-white font-medium text-xs uppercase tracking-widest hover:bg-neo-terracottaDark hover:shadow-lg transition-all duration-300">
+                    <a href="#apply" class="px-6 py-2.5 rounded-full bg-neo-terracotta hover:bg-neo-terracotta_dark text-white font-medium text-xs uppercase tracking-widest shadow-md transition-all transform hover:-translate-y-0.5">
                         Apply Now
                     </a>
                 </div>
 
-                <!-- Mobile menu toggle -->
                 <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-neo-charcoal p-2 focus:outline-none" aria-label="Toggle menu">
-                        <i class="fa-solid fa-bars text-xl"></i>
+                    <button id="mobile-menu-btn" class="text-neo-charcoal p-2 focus:outline-none" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        
-        <!-- Mobile Nav Menu -->
+
         <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-neo-rose px-6 py-6 space-y-4 absolute w-full shadow-xl">
             <a href="#about" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium">About</a>
             <a href="#leadership" class="block py-2 text-sm uppercase tracking-widest text-neo-charcoal font-medium">Leadership</a>
@@ -152,638 +116,748 @@
         </div>
     </header>
 
-    <!-- Clean Large Logo Display (No container box, no background) -->
-    <section class="pt-28 pb-4 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center relative z-10">
-        <img src="logo.png" alt="César Franck Summer Academy Logo" class="w-full h-auto max-h-[350px] sm:max-h-[500px] md:max-h-[600px] object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/FBF9F5/8C4A32?text=CÉSAR+FRANCK+SUMMER+ACADEMY';">
-    </section>
-
-    <section id="hero" class="relative pb-24 flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#FBF9F5] via-[#F4EFEB] to-[#FBF9F5]">
+    <section id="hero" class="relative pt-20 pb-24 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#FBF9F5] via-[#F4EFEB] to-[#FBF9F5]">
         <div class="absolute w-[500px] h-[500px] bg-neo-rose/40 rounded-full blur-[100px] top-[-10%] left-[-10%] pointer-events-none"></div>
         <div class="absolute w-[450px] h-[450px] bg-neo-gold/10 rounded-full blur-[100px] bottom-[5%] right-[-5%] pointer-events-none"></div>
 
-        <div class="relative max-w-5xl mx-auto px-4 text-center z-10 flex flex-col items-center">
+        <!-- Clean Seamless Logo Display -->
+        <div class="mb-6 px-4 text-center relative z-10 max-w-lg mx-auto">
+            <img src="logo.png" alt="César Franck Summer Academy Logo" class="w-full h-auto max-h-[140px] sm:max-h-[190px] md:max-h-[230px] object-contain mx-auto drop-shadow-sm" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 180\' fill=\'none\'><text x=\'300\' y=\'85\' text-anchor=\'middle\' font-family=\'Cormorant Garamond, serif\' font-size=\'48\' font-weight=\'bold\' fill=\'%238C4A32\'>CÉSAR FRANCK</text><text x=\'300\' y=\'125\' text-anchor=\'middle\' font-family=\'Outfit, sans-serif\' font-size=\'18\' letter-spacing=\'6\' fill=\'%239A7A3A\'>SUMMER ACADEMY</text></svg>';">
+        </div>
 
-            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-neo-charcoal mb-6 leading-[1.1] tracking-tight">
+        <div class="relative max-w-5xl mx-auto px-4 text-center z-10 flex flex-col items-center">
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-neo-charcoal mb-6 leading-[1.1] tracking-tight">
                 Classical Mastery in a <br>
                 <span class="text-gradient italic font-normal">Peaceful Sanctuary</span>
             </h1>
 
-            <p class="text-lg sm:text-xl text-neo-muted max-w-2xl font-light mb-8 leading-relaxed">
+            <p class="text-base sm:text-xl text-neo-muted max-w-2xl font-light mb-6 leading-relaxed">
                 An intensive 7-day summer academy uniting world-class piano & orchestra instruction with performance psychology, mindfulness, and historic heritage.
             </p>
 
-            <!-- Château d'Acoz Location Box placed here -->
-            <div class="mb-10 inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-neo-rose text-neo-terracotta text-xs tracking-[0.2em] uppercase shadow-sm">
-                <i class="fa-solid fa-location-dot text-neo-gold"></i> 
-                CHÂTEAU D'ACOZ • GERPINNES, BELGIUM
+            <!-- Location Badge -->
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 border border-neo-rose text-neo-terracotta text-xs font-semibold tracking-widest uppercase mb-10 shadow-sm backdrop-blur-sm">
+                <i class="fa-solid fa-location-dot text-neo-gold"></i> Château d'Acoz • Gerpinnes, Belgium
             </div>
 
-            <div class="h-2"></div>
-
-            <!-- Two Button Boxes with 2 lines empty gap -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-lg mt-4">
-                <a href="#tuition" class="w-full sm:w-auto px-8 py-4 rounded-full bg-neo-terracotta hover:bg-neo-terracottaDark text-white font-medium text-xs uppercase tracking-widest shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center">
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full max-w-md">
+                <a href="#tuition" class="w-full sm:w-auto px-8 py-4 rounded-full bg-neo-terracotta hover:bg-neo-terracotta_dark text-white font-medium text-xs uppercase tracking-widest shadow-lg shadow-neo-terracotta/20 transition-all text-center">
                     Explore Tuition Options
                 </a>
-                <a href="#professors" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/90 backdrop-blur-md hover:bg-white text-neo-charcoal border border-neo-rose font-medium text-xs uppercase tracking-widest shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                <a href="#professors" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-neo-sand text-neo-charcoal border border-neo-rose font-medium text-xs uppercase tracking-widest shadow-sm transition-all text-center">
                     Our Professors
                 </a>
             </div>
-            
-            <a href="#about" class="absolute bottom-6 animate-bounce text-neo-muted hover:text-neo-terracotta transition-colors">
-                <i class="fa-solid fa-arrow-down-long"></i>
-            </a>
         </div>
     </section>
 
-    <section id="about" class="py-32 relative z-10">
+    <section id="about" class="py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="neoclass-card rounded-[2.5rem] p-8 md:p-16 lg:p-20 overflow-hidden relative">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-neo-gold/5 rounded-full blur-3xl"></div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-                    <div class="space-y-8">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-[1px] bg-neo-gold"></div>
-                            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-neo-goldDark">The Academy Concept & Philosophy</span>
-                        </div>
-                        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-neo-charcoal leading-tight">
-                            Artistry Rooted in <span class="italic text-neo-terracotta font-normal">Mindfulness & Heritage</span>
-                        </h2>
-                        <div class="space-y-6 text-neo-muted text-base leading-relaxed font-light">
-                            <p>
-                                Nestled in the historic grandeur of Château d'Acoz in Gerpinnes, Belgium, the César Franck Summer Academy is a highly selective masterclass series dedicated to nurturing exceptional classical talent. Our core philosophy bridges rigorous technical mastery with deep psychological alignment.
-                            </p>
-                            <p>
-                                We believe true artistry requires more than hours at the instrument. By cultivating inner quietude, breath awareness, and absolute stage presence in an authentic historical sanctuary, young musicians learn to transform performance anxiety into profound, transcendent communication with their audiences.
-                            </p>
-                            <p>
-                                Every element of our program—from daily masterclass coaching by internationally celebrated faculty to evening salon recitals and contemplative walks through the moated castle grounds—is curated to awaken the highest tier of creative expression.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- Musical Rigor first as requested -->
-                        <div class="bg-white p-8 rounded-3xl border border-neo-rose shadow-sm hover:shadow-md transition-shadow">
-                            <div class="w-12 h-12 rounded-full bg-neo-roseLight flex items-center justify-center mb-6">
-                                <i class="fa-solid fa-music text-lg text-neo-terracotta"></i>
-                            </div>
-                            <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-3">Musical Rigor</h3>
-                            <p class="text-sm text-neo-muted font-light leading-relaxed">World-class coaching, individual instruction, concerto immersion, and profound technique refinement.</p>
-                        </div>
+            <div class="glass-card rounded-3xl p-8 sm:p-12 md:p-16">
+                <div class="max-w-3xl mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-neo-terracotta">Academy Concept & Philosophy</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-neo-charcoal mt-2 leading-tight">
+                        Inspire. Perform. Grow.
+                    </h2>
+                    <div class="w-20 h-0.5 bg-neo-gold my-5"></div>
+                    <p class="text-neo-muted text-base sm:text-lg leading-relaxed font-light mb-4">
+                        Nestled within the tranquil moated estate of Château d'Acoz in Gerpinnes, Belgium, the César Franck Summer Academy is a premier international sanctuary dedicated to the holistic cultivation of classical musical talent. 
+                    </p>
+                    <p class="text-neo-muted text-base leading-relaxed font-light">
+                        Founded on the belief that profound artistic expression requires both technical mastery and mental equilibrium, our academy brings together world-renowned concert artists and pedagogues. Here, musicians transcend traditional practice routines by combining rigorous 1-on-1 instruction with cutting-edge performance psychology, stage anxiety management, and somatic posture alignment.
+                    </p>
+                </div>
 
-                        <!-- Mind & Spirit second -->
-                        <div class="bg-white p-8 rounded-3xl border border-neo-rose shadow-sm hover:shadow-md transition-shadow sm:mt-12">
-                            <div class="w-12 h-12 rounded-full bg-neo-roseLight flex items-center justify-center mb-6">
-                                <i class="fa-solid fa-spa text-lg text-neo-terracotta"></i>
-                            </div>
-                            <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-3">Mind & Spirit</h3>
-                            <p class="text-sm text-neo-muted font-light leading-relaxed">Workshops focusing on performance psychology, stage anxiety release, and holistic artist presence.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+                    <!-- Box 1: Musical Rigor -->
+                    <div class="bg-white/80 p-8 rounded-2xl border border-neo-rose hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-neo-sand text-neo-terracotta flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-music"></i>
                         </div>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-3">Musical Rigor</h3>
+                        <p class="text-sm text-neo-muted font-light leading-relaxed">
+                            Intensive individual coaching, concerto soloist prep, and stylistic refinement under world-class conservatory faculty.
+                        </p>
+                    </div>
+
+                    <!-- Box 2: Mind & Spirit -->
+                    <div class="bg-white/80 p-8 rounded-2xl border border-neo-rose hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-neo-sand text-neo-terracotta flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-spa"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-3">Mind & Spirit</h3>
+                        <p class="text-sm text-neo-muted font-light leading-relaxed">
+                            Specialized mindfulness workshops focusing on performance psychology, stage presence, breathing control, and focus.
+                        </p>
+                    </div>
+
+                    <!-- Box 3: Heritage & Sanctuary -->
+                    <div class="bg-white/80 p-8 rounded-2xl border border-neo-rose hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-neo-sand text-neo-terracotta flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-chess-rook"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-3">Heritage & Sanctuary</h3>
+                        <p class="text-sm text-neo-muted font-light leading-relaxed">
+                            Immersion in the historic acoustic salons and serene manicured grounds of the historic Château d'Acoz estate.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="leadership" class="py-32 relative bg-[#F4EFEB]/50 border-y border-neo-rose/40">
+    <section id="leadership" class="py-24 bg-neo-sand/50 border-y border-neo-rose/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-neo-goldDark block mb-4">Governance & Artistry</span>
-                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-neo-charcoal">Leadership Team</h2>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-neo-terracotta">Governance & Vision</span>
+                <h2 class="font-serif text-4xl font-bold text-neo-charcoal mt-2">Leadership Team</h2>
+                <div class="w-16 h-0.5 bg-neo-gold mx-auto my-4"></div>
+                <p class="text-neo-muted text-sm font-light">Guided by an esteemed international team uniting fine arts, performance mastery, and organizational excellence.</p>
             </div>
 
-            <div class="space-y-16 max-w-5xl mx-auto">
-                
+            <div class="space-y-12">
                 <!-- Tony Cammaert -->
-                <div class="neoclass-card rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden bg-neo-roseLight border-2 border-white shadow-md shrink-0">
-                        <img src="tony.png" alt="Tony Cammaert" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/200x200/F3ECEA/8C4A32?text=Tony+Cammaert';">
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-widest">President</span>
-                            <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Tony Cammaert</h3>
+                <div class="glass-card rounded-3xl p-8 sm:p-10 hover-lift">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-4 flex justify-center">
+                            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-neo-gold/40 shadow-lg bg-neo-sand flex items-center justify-center">
+                                <img src="tony.png" alt="Tony Cammaert" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\' fill=\'%23F4EFEB\'><circle cx=\'100\' cy=\'75\' r=\'40\' fill=\'%238C4A32\' opacity=\'0.2\'/><path d=\'M30 180 C30 130 70 120 100 120 C130 120 170 130 170 180 Z\' fill=\'%238C4A32\' opacity=\'0.2\'/><text x=\'100\' y=\'105\' text-anchor=\'middle\' font-family=\'Cormorant Garamond\' font-size=\'32\' font-weight=\'bold\' fill=\'%238C4A32\'>TC</text></svg>';">
+                            </div>
                         </div>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            Owner and meticulous restorer of the historic Château d'Acoz, Tony Cammaert provides foundational governance and visionary stewardship for the academy. His profound dedication to architectural preservation, spatial harmony, and the timeless beauty of the estate creates a peaceful, inspiring sanctuary that shapes every participant's experience.
-                        </p>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            Furthermore, his lifelong passion for fine arts and East-West philosophical dialogue infuses the academy with an atmosphere of quiet reflection and deep creative exploration. Under his stewardship, the historic halls of Château d'Acoz become a living bridge between historical heritage and contemporary artistic excellence.
-                        </p>
+                        <div class="md:col-span-8 space-y-4">
+                            <div>
+                                <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Tony Cammaert</h3>
+                                <p class="text-xs font-bold text-neo-terracotta uppercase tracking-wider mt-1">President</p>
+                            </div>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                As the owner and restorer of Château d'Acoz, Tony Cammaert leads the academy's overall governance and overarching strategic vision. His lifelong dedication to fine arts, architectural heritage restoration, and spatial harmony has transformed the historic estate into an inspiring sanctuary for classical artists.
+                            </p>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                Combining deep philosophical insights with East-West cultural dialogue, Tony also leads the academy's signature mindfulness and stage presence sessions. His holistic approach helps musicians cultivate internal equilibrium, mental focus, and authentic artistic expression on stage.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Philippe Raskin -->
-                <div class="neoclass-card rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden bg-neo-roseLight border-2 border-white shadow-md shrink-0">
-                        <img src="philippe.png" alt="Philippe Raskin" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/200x200/F3ECEA/8C4A32?text=Philippe+Raskin';">
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-widest">Artistic Director</span>
-                            <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Philippe Raskin</h3>
+                <div class="glass-card rounded-3xl p-8 sm:p-10 hover-lift">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-4 flex justify-center">
+                            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-neo-gold/40 shadow-lg bg-neo-sand flex items-center justify-center">
+                                <img src="philippe.png" alt="Philippe Raskin" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\' fill=\'%23F4EFEB\'><circle cx=\'100\' cy=\'75\' r=\'40\' fill=\'%238C4A32\' opacity=\'0.2\'/><path d=\'M30 180 C30 130 70 120 100 120 C130 120 170 130 170 180 Z\' fill=\'%238C4A32\' opacity=\'0.2\'/><text x=\'100\' y=\'105\' text-anchor=\'middle\' font-family=\'Cormorant Garamond\' font-size=\'32\' font-weight=\'bold\' fill=\'%238C4A32\'>PR</text></svg>';">
+                            </div>
                         </div>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            An internationally acclaimed concert pianist and pedagogue, Philippe Raskin curates the academy's uncompromising artistic vision, masterclass standards, and world-class faculty. His extensive international concertizing career on global stages brings rigorous conservatory standards directly to the students.
-                        </p>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            Dedicated deeply to mentorship, Maestro Raskin's teaching philosophy emphasizes tonal color, structural architectural awareness in piano and chamber repertoire, and psychological resilience. His leadership ensures that every active participant receives world-class preparation for international stages.
-                        </p>
+                        <div class="md:col-span-8 space-y-4">
+                            <div>
+                                <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Philippe Raskin</h3>
+                                <p class="text-xs font-bold text-neo-terracotta uppercase tracking-wider mt-1">Artistic Director</p>
+                            </div>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                An internationally acclaimed concert pianist and pedagogue, Philippe Raskin curates the academy's artistic direction, masterclass standards, and faculty selection. Having performed in prestigious concert halls worldwide and served on juries of international piano competitions, he brings uncompromised artistic standards to the academy.
+                            </p>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                Philippe's passionate dedication to mentorship ensures that every active participant receives tailored artistic guidance. His coaching focuses on technical precision, tonal color palette, and deep interpretive understanding of classical and romantic masterworks.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Cristiana Dragos -->
-                <div class="neoclass-card rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden bg-neo-roseLight border-2 border-white shadow-md shrink-0">
-                        <img src="Cristiana.png" alt="Cristiana Dragos" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/200x200/F3ECEA/8C4A32?text=Cristiana+Dragos';">
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-widest">Executive Director</span>
-                            <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Cristiana Dragos</h3>
+                <div class="glass-card rounded-3xl p-8 sm:p-10 hover-lift">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-4 flex justify-center">
+                            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-neo-gold/40 shadow-lg bg-neo-sand flex items-center justify-center">
+                                <img src="Cristiana.png" alt="Cristiana Dragos" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\' fill=\'%23F4EFEB\'><circle cx=\'100\' cy=\'75\' r=\'40\' fill=\'%238C4A32\' opacity=\'0.2\'/><path d=\'M30 180 C30 130 70 120 100 120 C130 120 170 130 170 180 Z\' fill=\'%238C4A32\' opacity=\'0.2\'/><text x=\'100\' y=\'105\' text-anchor=\'middle\' font-family=\'Cormorant Garamond\' font-size=\'32\' font-weight=\'bold\' fill=\'%238C4A32\'>CD</text></svg>';">
+                            </div>
                         </div>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            An award-winning pianist, faculty mentor, and seasoned cultural project manager, Cristiana Dragos oversees the strategic execution, daily masterclass scheduling, and administrative leadership of the academy, ensuring seamless operations throughout the session.
-                        </p>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            Her expertise in international arts administration and student coordination guarantees an uplifting, supportive environment where young musicians can focus entirely on their craft. She acts as a vital bridge between faculty, administrative partners, and participating artists.
-                        </p>
+                        <div class="md:col-span-8 space-y-4">
+                            <div>
+                                <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Cristiana Dragos</h3>
+                                <p class="text-xs font-bold text-neo-terracotta uppercase tracking-wider mt-1">Executive Director</p>
+                            </div>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                An award-winning pianist, faculty member, and seasoned cultural manager, Cristiana Dragos oversees strategic execution, student admissions, and administrative leadership. Her extensive background in international project management guarantees seamless coordination across all academy tracks.
+                            </p>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                Cristiana is committed to fostering a supportive, inspiring environment where young artists can flourish. She coordinates student relations, masterclass schedules, and performance scheduling to ensure every participant enjoys a transformative week.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Anne Noel -->
-                <div class="neoclass-card rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden bg-neo-roseLight border-2 border-white shadow-md shrink-0">
-                        <img src="anne.png" alt="Anne Noel" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/200x200/F3ECEA/8C4A32?text=Anne+Noel';">
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-widest">General Manager</span>
-                            <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Anne Noel</h3>
+                <div class="glass-card rounded-3xl p-8 sm:p-10 hover-lift">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-4 flex justify-center">
+                            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-neo-gold/40 shadow-lg bg-neo-sand flex items-center justify-center">
+                                <img src="anne.png" alt="Anne Noel" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\' fill=\'%23F4EFEB\'><circle cx=\'100\' cy=\'75\' r=\'40\' fill=\'%238C4A32\' opacity=\'0.2\'/><path d=\'M30 180 C30 130 70 120 100 120 C130 120 170 130 170 180 Z\' fill=\'%238C4A32\' opacity=\'0.2\'/><text x=\'100\' y=\'105\' text-anchor=\'middle\' font-family=\'Cormorant Garamond\' font-size=\'32\' font-weight=\'bold\' fill=\'%238C4A32\'>AN</text></svg>';">
+                            </div>
                         </div>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            Anne Noel oversees on-site operational logistics, participant housing at Domaine du Château de Lausprelle, and daily event coordination. Her organizational care ensures that students and faculty experience absolute comfort and hospitality during their stay.
-                        </p>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            With extensive experience in hospitality management and cultural event staging, she coordinates transportation, shuttle timetables between gîtes and the Château, and catering services, allowing participants to immerse themselves fully in their musical studies without distraction.
-                        </p>
+                        <div class="md:col-span-8 space-y-4">
+                            <div>
+                                <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Anne Noel</h3>
+                                <p class="text-xs font-bold text-neo-terracotta uppercase tracking-wider mt-1">General Manager</p>
+                            </div>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                Anne Noel manages all on-site operational logistics, guest hospitality, and event coordination across Château d'Acoz and partner lodging facilities. Her attention to detail creates a welcoming, serene atmosphere for faculty and students alike.
+                            </p>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                From supervising catering and rehearsal salon allocations to coordinating shuttle transfers and concert receptions, Anne's dedicated leadership ensures the daily operations flow effortlessly throughout the academy session.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Meng Li -->
-                <div class="neoclass-card rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden bg-neo-roseLight border-2 border-white shadow-md shrink-0">
-                        <img src="meng.png" alt="Meng Li" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/200x200/F3ECEA/8C4A32?text=Meng+Li';">
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-widest">Advisor</span>
-                            <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Meng Li</h3>
+                <div class="glass-card rounded-3xl p-8 sm:p-10 hover-lift">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-4 flex justify-center">
+                            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-neo-gold/40 shadow-lg bg-neo-sand flex items-center justify-center">
+                                <img src="meng.png" alt="Meng Li" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\' fill=\'%23F4EFEB\'><circle cx=\'100\' cy=\'75\' r=\'40\' fill=\'%238C4A32\' opacity=\'0.2\'/><path d=\'M30 180 C30 130 70 120 100 120 C130 120 170 130 170 180 Z\' fill=\'%238C4A32\' opacity=\'0.2\'/><text x=\'100\' y=\'105\' text-anchor=\'middle\' font-family=\'Cormorant Garamond\' font-size=\'32\' font-weight=\'bold\' fill=\'%238C4A32\'>ML</text></svg>';">
+                            </div>
                         </div>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            Bringing exceptional expertise in international cultural exchange, global educational outreach, and artistic partnership development, Meng Li serves as a strategic advisor to the César Franck Academy administration.
-                        </p>
-                        <p class="text-sm text-neo-muted leading-relaxed font-light">
-                            Her insights bridge European classical traditions with international conservatory networks, expanding the academy's global reach and fostering cross-cultural collaborations that enrich the artistic horizons of every student.
-                        </p>
+                        <div class="md:col-span-8 space-y-4">
+                            <div>
+                                <h3 class="font-serif text-3xl font-bold text-neo-charcoal">Meng Li</h3>
+                                <p class="text-xs font-bold text-neo-terracotta uppercase tracking-wider mt-1">Advisor</p>
+                            </div>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                Bringing valuable international expertise in global cultural exchange and artistic development, Meng Li serves as a strategic advisor to the César Franck Summer Academy. Her vision supports global partnership opportunities and student recruitment.
+                            </p>
+                            <p class="text-sm text-neo-muted leading-relaxed font-light">
+                                Her strategic counsel helps bridge classical music traditions with modern artistic initiatives, enhancing the academy's international profile and expanding opportunities for participating students on global stages.
+                            </p>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="professors" class="py-32 relative z-10">
+    <section id="professors" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-neo-goldDark block mb-4">World-Class Instruction</span>
-                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-neo-charcoal">Our Professors and Mentors</h2>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-neo-terracotta">World-Class Instruction</span>
+                <h2 class="font-serif text-4xl font-bold text-neo-charcoal mt-2">Our Professors & Mentors</h2>
+                <div class="w-16 h-0.5 bg-neo-gold mx-auto my-4"></div>
+                <p class="text-neo-muted text-sm font-light">Learn directly from internationally acclaimed concert artists and performance psychology specialists.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 <!-- Piano Faculty -->
-                <div class="neoclass-card rounded-3xl p-10 space-y-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-neo-roseLight flex items-center justify-center text-neo-terracotta text-lg">
-                            <i class="fa-solid fa-music"></i>
+                <div class="lg:col-span-8 space-y-6">
+                    <h3 class="font-serif text-2xl font-bold text-neo-charcoal flex items-center gap-3">
+                        <i class="fa-solid fa-compact-disc text-neo-terracotta text-lg"></i> Piano & Chamber Faculty
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Philippe Raskin -->
+                        <div class="glass-card p-6 rounded-2xl hover-lift border-l-4 border-l-neo-terracotta">
+                            <h4 class="font-serif text-xl font-bold text-neo-charcoal">Philippe Raskin</h4>
+                            <p class="text-xs font-semibold text-neo-gold_dark uppercase mt-1">International Concert Pianist</p>
+                            <p class="text-xs text-neo-muted mt-3 font-light leading-relaxed">Artistic Director & Master Class Lead with global solo concertizing background.</p>
                         </div>
-                        <div>
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-neo-goldDark">Masterclass & Piano Faculty</span>
-                            <h3 class="font-serif text-2xl font-bold text-neo-charcoal">Piano Department</h3>
+
+                        <!-- Yun Zhao -->
+                        <div class="glass-card p-6 rounded-2xl hover-lift border-l-4 border-l-neo-terracotta">
+                            <h4 class="font-serif text-xl font-bold text-neo-charcoal">Yun Zhao</h4>
+                            <p class="text-xs font-semibold text-neo-gold_dark uppercase mt-1">Concert Pianist & Pedagogue</p>
+                            <p class="text-xs text-neo-muted mt-3 font-light leading-relaxed">Renowned competition laureate and active international piano faculty member.</p>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <div class="bg-white p-5 rounded-2xl border border-neo-rose shadow-sm">
-                            <h4 class="font-serif text-lg font-bold text-neo-charcoal">Philippe Raskin</h4>
-                            <p class="text-xs text-neo-muted mt-1 font-light">Artistic Director & Concert Pianist</p>
+
+                        <!-- Mitsuru Yamakawa -->
+                        <div class="glass-card p-6 rounded-2xl hover-lift border-l-4 border-l-neo-terracotta">
+                            <h4 class="font-serif text-xl font-bold text-neo-charcoal">Mitsuru Yamakawa</h4>
+                            <p class="text-xs font-semibold text-neo-gold_dark uppercase mt-1">Master Pianist & Coach</p>
+                            <p class="text-xs text-neo-muted mt-3 font-light leading-relaxed">Specialist in sound projection, fine tone refinement, and romantic interpretation.</p>
                         </div>
-                        <div class="bg-white p-5 rounded-2xl border border-neo-rose shadow-sm">
-                            <h4 class="font-serif text-lg font-bold text-neo-charcoal">Yun Zhao</h4>
-                            <p class="text-xs text-neo-muted mt-1 font-light">Distinguished Visiting Professor</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-neo-rose shadow-sm">
-                            <h4 class="font-serif text-lg font-bold text-neo-charcoal">Mitsuru Yamakawa</h4>
-                            <p class="text-xs text-neo-muted mt-1 font-light">International Concert Pianist & Pedagogue</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-neo-rose shadow-sm">
-                            <h4 class="font-serif text-lg font-bold text-neo-charcoal">George Tudorache</h4>
-                            <p class="text-xs text-neo-muted mt-1 font-light">Conservatory Chair & Soloist</p>
+
+                        <!-- George Tudorache -->
+                        <div class="glass-card p-6 rounded-2xl hover-lift border-l-4 border-l-neo-terracotta">
+                            <h4 class="font-serif text-xl font-bold text-neo-charcoal">George Tudorache</h4>
+                            <p class="text-xs font-semibold text-neo-gold_dark uppercase mt-1">Violinist & Ensemble Leader</p>
+                            <p class="text-xs text-neo-muted mt-3 font-light leading-relaxed">Concertmaster and chamber authority directing concerto orchestra sessions.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mindfulness Faculty -->
-                <div class="neoclass-card rounded-3xl p-10 space-y-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-neo-roseLight flex items-center justify-center text-neo-terracotta text-lg">
-                            <i class="fa-solid fa-spa"></i>
-                        </div>
+                <!-- Mindfulness Mentor -->
+                <div class="lg:col-span-4 space-y-6">
+                    <h3 class="font-serif text-2xl font-bold text-neo-charcoal flex items-center gap-3">
+                        <i class="fa-solid fa-spa text-neo-terracotta text-lg"></i> Performance Psychology
+                    </h3>
+                    <div class="glass-card-accent p-8 rounded-2xl hover-lift h-[calc(100%-3rem)] flex flex-col justify-between">
                         <div>
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-neo-goldDark">Mindfulness & Stage Psychology</span>
-                            <h3 class="font-serif text-2xl font-bold text-neo-charcoal">Mindfulness Mentor</h3>
+                            <div class="w-12 h-12 rounded-full bg-neo-terracotta/10 text-neo-terracotta flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-yin-yang"></i>
+                            </div>
+                            <h4 class="font-serif text-2xl font-bold text-neo-charcoal">Tony Cammaert</h4>
+                            <p class="text-xs font-semibold text-neo-terracotta uppercase mt-1">Mindfulness & Stagecraft Mentor</p>
+                            <p class="text-sm text-neo-muted mt-4 font-light leading-relaxed">
+                                Leading dedicated workshops in stage anxiety management, deep presence, somatic breathing, and performance mindset inside the tranquil atmosphere of Château d'Acoz.
+                            </p>
                         </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-neo-rose shadow-sm mt-4">
-                        <h4 class="font-serif text-xl font-bold text-neo-charcoal">Tony Cammaert</h4>
-                        <p class="text-xs text-neo-goldDark uppercase tracking-widest font-semibold mt-1">President & Philosophy Mentor</p>
-                        <p class="text-xs text-neo-muted font-light mt-3 leading-relaxed">
-                            Guiding daily sessions in mental clarity, performance anxiety release, spatial awareness, and philosophical presence to ground young artists before stepping onto the concert stage.
-                        </p>
+                        <div class="mt-6 pt-4 border-t border-neo-rose/60 text-xs text-neo-terracotta font-medium">
+                            <i class="fa-solid fa-check-circle mr-1"></i> Included in all Premium & Belgian tracks
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tuition" class="py-32 relative bg-[#F4EFEB]/50 border-y border-neo-rose/40">
+    <section id="tuition" class="py-24 bg-neo-sand/40 border-y border-neo-rose/60 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-neo-goldDark block mb-4">Investment in Artistry</span>
-                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-neo-charcoal">Masterclass Options & Tuition</h2>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-neo-terracotta">Investment in Artistry</span>
+                <h2 class="font-serif text-4xl font-bold text-neo-charcoal mt-2">Masterclass Tracks & Tuition</h2>
+                <div class="w-16 h-0.5 bg-neo-gold mx-auto my-4"></div>
+                <p class="text-neo-muted text-sm font-light">Tailored solo and concerto orchestra programs designed to elevate every performer's artistry.</p>
             </div>
 
-            <!-- Masterclass Options Grid matching exact specifications -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Standard Solo & Concerto Options Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 
-                <!-- Solo Premium (Option 1 equivalent) -->
-                <div class="neoclass-card rounded-[2rem] p-8 flex flex-col justify-between border-2 border-neo-terracotta/30">
+                <!-- Solo Premium (€800) -->
+                <div class="glass-card-accent rounded-3xl p-8 flex flex-col justify-between hover-lift relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-neo-gold text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-bl-xl shadow-sm">
+                        Popular Solo
+                    </div>
                     <div>
-                        <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-[0.2em] block mb-2">Solo Tuitions</span>
-                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-4">Solo Premium</h3>
-                        <div class="font-sans text-4xl font-light text-neo-charcoal mb-6">€800.00</div>
-                        <ul class="space-y-3 text-sm text-neo-muted font-light mb-8 border-t border-neo-rose/50 pt-6">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-music text-neo-terracotta text-xs"></i> 6 Masterclasses</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-spa text-neo-terracotta text-xs"></i> 3 Workshops</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-ticket text-neo-terracotta text-xs"></i> 3 Concert Performances</li>
+                        <span class="text-xs font-bold text-neo-terracotta uppercase tracking-widest">Solo Track</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-1">Solo Premium</h3>
+                        <div class="my-4 flex items-baseline">
+                            <span class="font-serif text-4xl font-bold text-neo-charcoal">€800</span>
+                            <span class="text-xs text-neo-muted ml-2">/ full session</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-neo-muted font-light my-6 border-t border-neo-rose/60 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-gold_dark"></i> <strong>6 Masterclasses</strong></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-gold_dark"></i> <strong>3 Workshops</strong> (Mindfulness)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-gold_dark"></i> <strong>3 Concert Performances</strong></li>
                         </ul>
                     </div>
-                    <button onclick="selectPackage('OPTION 1 - Solo Premium (€800.00)')" class="w-full py-3 rounded-full bg-neo-terracotta text-white hover:bg-neo-terracottaDark transition-all text-xs uppercase tracking-widest font-medium shadow-md">Select Solo Premium</button>
+                    <button onclick="selectPackage('Solo Premium (€800)')" class="w-full py-3.5 rounded-xl bg-neo-terracotta hover:bg-neo-terracotta_dark text-white font-medium text-xs uppercase tracking-widest shadow-md transition-all">
+                        Select Solo Premium
+                    </button>
                 </div>
 
-                <!-- Solo Pure (Option 2 equivalent) -->
-                <div class="neoclass-card rounded-[2rem] p-8 flex flex-col justify-between">
+                <!-- Solo Pure (€600) -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between hover-lift">
                     <div>
-                        <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-[0.2em] block mb-2">Solo Tuitions</span>
-                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-4">Solo Pure</h3>
-                        <div class="font-sans text-4xl font-light text-neo-charcoal mb-6">€600.00</div>
-                        <ul class="space-y-3 text-sm text-neo-muted font-light mb-8 border-t border-neo-rose/50 pt-6">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-music text-neo-terracotta text-xs"></i> 4 Masterclasses</li>
-                            <li class="flex items-center gap-3 opacity-40"><i class="fa-solid fa-minus text-neo-charcoal text-xs"></i> 0 Workshops</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-ticket text-neo-terracotta text-xs"></i> 2 Concert Performances</li>
+                        <span class="text-xs font-bold text-neo-muted uppercase tracking-widest">Solo Track</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-1">Solo Pure</h3>
+                        <div class="my-4 flex items-baseline">
+                            <span class="font-serif text-4xl font-bold text-neo-charcoal">€600</span>
+                            <span class="text-xs text-neo-muted ml-2">/ full session</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-neo-muted font-light my-6 border-t border-neo-rose/60 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-terracotta"></i> <strong>4 Masterclasses</strong></li>
+                            <li class="flex items-center gap-3 text-neo-muted/60"><i class="fa-solid fa-xmark text-neo-rose"></i> 0 Workshops</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-terracotta"></i> <strong>2 Concert Performances</strong></li>
                         </ul>
                     </div>
-                    <button onclick="selectPackage('OPTION 2 - Solo Pure (€600.00)')" class="w-full py-3 rounded-full border border-neo-terracotta text-neo-terracotta hover:bg-neo-terracotta hover:text-white transition-all text-xs uppercase tracking-widest font-medium">Select Solo Pure</button>
+                    <button onclick="selectPackage('Solo Pure (€600)')" class="w-full py-3.5 rounded-xl border border-neo-terracotta text-neo-terracotta hover:bg-neo-terracotta hover:text-white font-medium text-xs uppercase tracking-widest transition-all">
+                        Select Solo Pure
+                    </button>
                 </div>
 
-                <!-- Solo Express (Option 3 equivalent) -->
-                <div class="neoclass-card rounded-[2rem] p-8 flex flex-col justify-between">
+                <!-- Solo Express (€400) -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between hover-lift">
                     <div>
-                        <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-[0.2em] block mb-2">Solo Tuitions</span>
-                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-4">Solo Express</h3>
-                        <div class="font-sans text-4xl font-light text-neo-charcoal mb-6">€400.00</div>
-                        <ul class="space-y-3 text-sm text-neo-muted font-light mb-8 border-t border-neo-rose/50 pt-6">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-music text-neo-terracotta text-xs"></i> 3 Music Workshops</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-spa text-neo-terracotta text-xs"></i> 3 Workshops</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-ticket text-neo-terracotta text-xs"></i> 1 Concert Performance</li>
+                        <span class="text-xs font-bold text-neo-muted uppercase tracking-widest">Solo Track</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-1">Solo Express</h3>
+                        <div class="my-4 flex items-baseline">
+                            <span class="font-serif text-4xl font-bold text-neo-charcoal">€400</span>
+                            <span class="text-xs text-neo-muted ml-2">/ express session</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-neo-muted font-light my-6 border-t border-neo-rose/60 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-terracotta"></i> <strong>3 Music Workshops</strong></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-terracotta"></i> <strong>3 Workshops</strong> (Mindfulness)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-terracotta"></i> <strong>1 Concert Performance</strong></li>
                         </ul>
                     </div>
-                    <button onclick="selectPackage('OPTION 3 - Solo Express (€400.00)')" class="w-full py-3 rounded-full border border-neo-terracotta text-neo-terracotta hover:bg-neo-terracotta hover:text-white transition-all text-xs uppercase tracking-widest font-medium">Select Solo Express</button>
-                </div>
-
-                <!-- Concerto Pure (Option 6 equivalent) -->
-                <div class="neoclass-card rounded-[2rem] p-8 flex flex-col justify-between">
-                    <div>
-                        <span class="text-[10px] font-bold text-neo-goldDark uppercase tracking-[0.2em] block mb-2">Orchestra Tuitions</span>
-                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-4">Concerto Pure</h3>
-                        <div class="font-sans text-4xl font-light text-neo-charcoal mb-6">€1,200.00</div>
-                        <ul class="space-y-3 text-sm text-neo-muted font-light mb-8 border-t border-neo-rose/50 pt-6">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-music text-neo-terracotta text-xs"></i> 6 Masterclasses (Orchestra)</li>
-                            <li class="flex items-center gap-3 opacity-40"><i class="fa-solid fa-minus text-neo-charcoal text-xs"></i> 0 Workshops</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-ticket text-neo-terracotta text-xs"></i> 3 Concert Performances</li>
-                        </ul>
-                    </div>
-                    <button onclick="selectPackage('OPTION 6 - Concerto Pure (€1,200.00)')" class="w-full py-3 rounded-full border border-neo-terracotta text-neo-terracotta hover:bg-neo-terracotta hover:text-white transition-all text-xs uppercase tracking-widest font-medium">Select Concerto Pure</button>
+                    <button onclick="selectPackage('Solo Express (€400)')" class="w-full py-3.5 rounded-xl border border-neo-terracotta text-neo-terracotta hover:bg-neo-terracotta hover:text-white font-medium text-xs uppercase tracking-widest transition-all">
+                        Select Solo Express
+                    </button>
                 </div>
 
                 <!-- Concerto Premium (€1,500) -->
-                <div class="bg-neo-charcoal rounded-[2rem] p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-500 md:col-span-2 lg:col-span-2 text-white border-2 border-neo-gold/50">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neo-gold/20 rounded-full blur-2xl"></div>
-                    <div class="relative z-10">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-[10px] font-bold text-neo-gold uppercase tracking-[0.2em]">Orchestra Tuitions</span>
-                            <span class="bg-neo-gold text-neo-charcoal text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Featured Track</span>
+                <div class="glass-card-accent rounded-3xl p-8 flex flex-col justify-between hover-lift border-neo-gold relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-neo-terracotta text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-bl-xl shadow-sm">
+                        Full Orchestra
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-neo-terracotta uppercase tracking-widest">Orchestra Track</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-1">Concerto Premium</h3>
+                        <div class="my-4 flex items-baseline">
+                            <span class="font-serif text-4xl font-bold text-neo-charcoal">€1,500</span>
+                            <span class="text-xs text-neo-muted ml-2">/ full session</span>
                         </div>
-                        <h3 class="font-serif text-3xl font-bold text-white mb-4">Concerto Premium</h3>
-                        <div class="font-sans text-5xl font-light text-white mb-6">€1,500.00</div>
-                        <ul class="space-y-3 text-sm text-white/80 font-light mb-8 border-t border-white/20 pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-music text-neo-gold text-xs"></i> 6 Masterclasses (Orchestra)</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-spa text-neo-gold text-xs"></i> 5 Workshops</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-star text-neo-gold text-xs"></i> 3 Concert Performances</li>
+                        <ul class="space-y-3 text-sm text-neo-muted font-light my-6 border-t border-neo-rose/60 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-gold_dark"></i> <strong>6 Masterclasses (Orchestra)</strong></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-gold_dark"></i> <strong>5 Workshops</strong> (Mindfulness)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-gold_dark"></i> <strong>3 Concert Performances</strong></li>
                         </ul>
                     </div>
-                    <button onclick="selectPackage('OPTION 5 - Concerto Premium (€1,500.00)')" class="w-full py-4 rounded-full bg-neo-gold text-neo-charcoal hover:bg-white transition-all text-xs uppercase tracking-widest font-bold relative z-10 shadow-xl">Select Concerto Premium</button>
+                    <button onclick="selectPackage('Concerto Premium (€1,500)')" class="w-full py-3.5 rounded-xl bg-neo-gold_dark hover:bg-neo-gold text-white font-medium text-xs uppercase tracking-widest shadow-md transition-all">
+                        Select Concerto Premium
+                    </button>
                 </div>
 
-            </div>
-
-            <!-- Special Belgian Track (Placed AFTER all masterclass options) -->
-            <div id="belgian-track" class="mt-16 bg-white rounded-[2.5rem] p-8 md:p-12 border-2 border-neo-gold/40 shadow-xl relative overflow-hidden flex flex-col lg:flex-row items-center gap-12">
-                <div class="absolute top-0 right-0 bg-neo-gold text-neo-charcoal text-[9px] font-bold uppercase tracking-[0.2em] px-6 py-2 rounded-bl-3xl">
-                    Special Local Track
-                </div>
-                
-                <div class="lg:w-2/3 space-y-6">
-                    <h3 class="font-serif text-3xl md:text-4xl font-bold text-neo-charcoal">Belgian Music Academy Student Track</h3>
-                    <p class="text-neo-muted text-base leading-relaxed font-light">
-                        Specifically tailored for students currently enrolled in Belgian municipal academies of music and conservatories. Includes <strong>3 music workshops</strong> and <strong>3 mindfulness workshops</strong> in an inspiring castle setting.
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-sm text-neo-charcoal">
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 rounded-full bg-neo-roseLight flex items-center justify-center text-neo-terracotta text-xs"><i class="fa-solid fa-check"></i></div>
-                            <span>3 Music Workshops</span>
+                <!-- Concerto Pure (€1,200) -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between hover-lift border-neo-gold/50">
+                    <div>
+                        <span class="text-xs font-bold text-neo-gold_dark uppercase tracking-widest">Orchestra Track</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-1">Concerto Pure</h3>
+                        <div class="my-4 flex items-baseline">
+                            <span class="font-serif text-4xl font-bold text-neo-charcoal">€1,200</span>
+                            <span class="text-xs text-neo-muted ml-2">/ full session</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 rounded-full bg-neo-roseLight flex items-center justify-center text-neo-terracotta text-xs"><i class="fa-solid fa-check"></i></div>
-                            <span>3 Mindfulness Workshops</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 rounded-full bg-neo-roseLight flex items-center justify-center text-neo-terracotta text-xs"><i class="fa-solid fa-check"></i></div>
-                            <span>Student Recital Slot</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 rounded-full bg-neo-roseLight flex items-center justify-center text-neo-terracotta text-xs"><i class="fa-solid fa-check"></i></div>
-                            <span>Valid Belgian Student ID</span>
-                        </div>
+                        <ul class="space-y-3 text-sm text-neo-muted font-light my-6 border-t border-neo-rose/60 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-gold_dark"></i> <strong>6 Masterclasses (Orchestra)</strong></li>
+                            <li class="flex items-center gap-3 text-neo-muted/60"><i class="fa-solid fa-xmark text-neo-rose"></i> 0 Workshops</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-gold_dark"></i> <strong>3 Concert Performances</strong></li>
+                        </ul>
                     </div>
+                    <button onclick="selectPackage('Concerto Pure (€1,200)')" class="w-full py-3.5 rounded-xl bg-neo-terracotta hover:bg-neo-terracotta_dark text-white font-medium text-xs uppercase tracking-widest shadow-md transition-all">
+                        Select Concerto Pure
+                    </button>
                 </div>
-                
-                <div class="lg:w-1/3 w-full bg-[#F4EFEB] p-8 rounded-3xl text-center border border-neo-rose">
-                    <div class="font-serif text-6xl font-bold text-neo-charcoal">€350</div>
-                    <span class="block text-[10px] tracking-[0.1em] text-neo-muted uppercase mt-3 mb-6 font-semibold">Reduced Local Tuition</span>
-                    <button onclick="selectPackage('Belgian Music Academy Student (€350.00)')" class="w-full py-4 rounded-full bg-neo-terracotta hover:bg-neo-terracottaDark text-white font-medium text-xs uppercase tracking-widest transition-all shadow-lg">
-                        Select Belgian Track
+
+                <!-- Pass / Auditor Option -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between hover-lift">
+                    <div>
+                        <span class="text-xs font-bold text-neo-muted uppercase tracking-widest">Auditor Pass</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-1">Passive Auditor</h3>
+                        <div class="my-4 flex items-baseline">
+                            <span class="font-serif text-4xl font-bold text-neo-charcoal">€150</span>
+                            <span class="text-xs text-neo-muted ml-2">/ full week</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-neo-muted font-light my-6 border-t border-neo-rose/60 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-terracotta"></i> Access to all open masterclasses</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-terracotta"></i> Access to mindfulness lectures</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neo-terracotta"></i> Entry to public student concerts</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectPackage('Passive Auditor (€150)')" class="w-full py-3.5 rounded-xl border border-neo-terracotta text-neo-terracotta hover:bg-neo-terracotta hover:text-white font-medium text-xs uppercase tracking-widest transition-all">
+                        Select Auditor Pass
                     </button>
                 </div>
             </div>
-            
-            <div class="mt-12 text-center max-w-xl mx-auto">
-                <p class="text-xs text-neo-muted bg-white py-3 px-6 rounded-full inline-block border border-neo-rose shadow-sm">
-                    <i class="fa-solid fa-utensils mr-2 text-neo-terracotta"></i> 
-                    <strong>Note:</strong> A €150 mandatory fee applies for daily on-site catering (lunches & coffee station).
-                </p>
+
+            <!-- Belgian Music Academy Student Track Banner (Placed after standard options) -->
+            <div id="belgian-track" class="bg-gradient-to-r from-white via-neo-sand to-white rounded-3xl p-8 sm:p-12 border-2 border-neo-gold shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-neo-gold text-white text-[10px] font-bold uppercase tracking-widest px-5 py-2 rounded-bl-2xl shadow-sm">
+                    Belgian Youth Offer
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8">
+                        <span class="text-xs font-bold text-neo-terracotta uppercase tracking-widest">Special Local Academy Track</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl font-bold text-neo-charcoal mt-1 mb-3">
+                            Belgian Music Academy Student Track
+                        </h3>
+                        <p class="text-neo-muted text-sm leading-relaxed font-light mb-6">
+                            Specifically tailored for students currently enrolled in Belgian municipal academies of music and Royal Conservatories. Valid student documentation required.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-neo-charcoal font-medium">
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-neo-terracotta"></i> 3 Music Workshops</div>
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-neo-terracotta"></i> 3 Mindfulness Workshops</div>
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-neo-terracotta"></i> Inspiring Castle Atmosphere</div>
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-neo-terracotta"></i> Full Access to Public Concerts</div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 bg-white/90 p-8 rounded-2xl border border-neo-rose text-center shadow-sm">
+                        <div class="font-serif text-5xl font-bold text-neo-charcoal">€350</div>
+                        <span class="block text-xs text-neo-terracotta font-semibold uppercase tracking-widest mt-2 mb-6">Reduced Local Tuition</span>
+                        <button onclick="selectPackage('Belgian Academy Student (€350)')" class="w-full py-3.5 rounded-xl bg-neo-terracotta hover:bg-neo-terracotta_dark text-white font-medium text-xs uppercase tracking-widest transition-all shadow-md">
+                            Select Belgian Track
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mandatory Catering Notice -->
+            <div class="mt-8 bg-white/70 rounded-2xl p-5 text-center border border-neo-rose flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-neo-charcoal">
+                <i class="fa-solid fa-utensils text-neo-gold_dark text-lg"></i>
+                <span><strong>Mandatory Catering Supplement:</strong> A €150 fee applies for daily on-site lunches, continuous espresso & refreshment stations.</span>
             </div>
         </div>
     </section>
 
-    <section id="concerts" class="py-32 bg-neo-charcoal text-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-neo-terracotta/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-neo-gold block mb-4">The Grand Salon</span>
-                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mb-6">Public Concert Series</h2>
-                <p class="text-white/70 text-base font-light max-w-2xl mx-auto">
-                    Experience the culmination of our summer academy. Masterclass participants perform in our spotlight evening recitals, followed by the magnificent Grand Gala with orchestra and celebratory reception.
-                </p>
+    <section id="concerts" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-neo-terracotta">Grand Salon Recitals</span>
+                <h2 class="font-serif text-4xl font-bold text-neo-charcoal mt-2">Public Concert Series</h2>
+                <div class="w-16 h-0.5 bg-neo-gold mx-auto my-4"></div>
+                <p class="text-neo-muted text-sm font-light">Experience exceptional live performances in the acoustic splendour of Château d'Acoz.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                
-                <!-- Spotlight 1 -->
-                <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors group flex flex-col justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Concert 1 -->
+                <div class="glass-card rounded-2xl p-6 hover-lift text-center flex flex-col justify-between">
                     <div>
-                        <span class="text-[10px] text-neo-gold tracking-[0.1em] uppercase block mb-2 font-semibold">Spotlight Concert I</span>
-                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Masterclass Spotlight I</h3>
-                        <p class="text-sm text-white/60 font-light">Performances by selected masterclass participants in the intimate Château Grand Salon.</p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neo-terracotta">Spotlight I</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-2">Student Spotlight I</h3>
+                        <p class="text-xs text-neo-muted mt-2 font-light">Masterclass participants perform chosen solo masterworks in the Grand Salon.</p>
                     </div>
-                    <div class="mt-8 flex items-end justify-between border-t border-white/10 pt-4">
-                        <div class="font-sans text-xl font-light text-white">€10</div>
-                        <button onclick="openTicketModal('Masterclass Spotlight I')" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-neo-gold group-hover:text-neo-charcoal transition-all">
-                            <i class="fa-solid fa-arrow-right"></i>
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-neo-charcoal my-4">€10.00</div>
+                        <button onclick="openTicketModal('Student Spotlight I (€10)')" class="w-full py-2.5 bg-neo-terracotta text-white text-xs uppercase tracking-widest rounded-xl hover:bg-neo-terracotta_dark transition-colors">
+                            Reserve Ticket
                         </button>
                     </div>
                 </div>
 
-                <!-- Spotlight 2 -->
-                <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors group flex flex-col justify-between">
+                <!-- Concert 2 -->
+                <div class="glass-card rounded-2xl p-6 hover-lift text-center flex flex-col justify-between">
                     <div>
-                        <span class="text-[10px] text-neo-gold tracking-[0.1em] uppercase block mb-2 font-semibold">Spotlight Concert II</span>
-                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Masterclass Spotlight II</h3>
-                        <p class="text-sm text-white/60 font-light">Second evening of solo piano and chamber music performances by academy artists.</p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neo-terracotta">Spotlight II</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-2">Student Spotlight II</h3>
+                        <p class="text-xs text-neo-muted mt-2 font-light">Virtuoso solo and chamber performances by academy participants.</p>
                     </div>
-                    <div class="mt-8 flex items-end justify-between border-t border-white/10 pt-4">
-                        <div class="font-sans text-xl font-light text-white">€10</div>
-                        <button onclick="openTicketModal('Masterclass Spotlight II')" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-neo-gold group-hover:text-neo-charcoal transition-all">
-                            <i class="fa-solid fa-arrow-right"></i>
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-neo-charcoal my-4">€10.00</div>
+                        <button onclick="openTicketModal('Student Spotlight II (€10)')" class="w-full py-2.5 bg-neo-terracotta text-white text-xs uppercase tracking-widest rounded-xl hover:bg-neo-terracotta_dark transition-colors">
+                            Reserve Ticket
                         </button>
                     </div>
                 </div>
 
-                <!-- Spotlight 3 -->
-                <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors group flex flex-col justify-between">
+                <!-- Concert 3 -->
+                <div class="glass-card rounded-2xl p-6 hover-lift text-center flex flex-col justify-between">
                     <div>
-                        <span class="text-[10px] text-neo-gold tracking-[0.1em] uppercase block mb-2 font-semibold">Spotlight Concert III</span>
-                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Masterclass Spotlight III</h3>
-                        <p class="text-sm text-white/60 font-light">Final preparatory showcase featuring advanced repertoire interpretations.</p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neo-terracotta">Spotlight III</span>
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mt-2">Student Spotlight III</h3>
+                        <p class="text-xs text-neo-muted mt-2 font-light">Final solo recitals highlighting technical & expressive artistic growth.</p>
                     </div>
-                    <div class="mt-8 flex items-end justify-between border-t border-white/10 pt-4">
-                        <div class="font-sans text-xl font-light text-white">€10</div>
-                        <button onclick="openTicketModal('Masterclass Spotlight III')" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-neo-gold group-hover:text-neo-charcoal transition-all">
-                            <i class="fa-solid fa-arrow-right"></i>
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-neo-charcoal my-4">€10.00</div>
+                        <button onclick="openTicketModal('Student Spotlight III (€10)')" class="w-full py-2.5 bg-neo-terracotta text-white text-xs uppercase tracking-widest rounded-xl hover:bg-neo-terracotta_dark transition-colors">
+                            Reserve Ticket
                         </button>
                     </div>
                 </div>
 
-                <!-- Grand Gala with Orchestra & Reception -->
-                <div class="bg-gradient-to-br from-neo-gold to-neo-goldDark rounded-2xl p-8 transform md:-translate-y-4 shadow-2xl group flex flex-col justify-between border border-white/20">
+                <!-- Grand Gala Concert -->
+                <div class="bg-gradient-to-br from-neo-plum to-neo-charcoal text-white rounded-2xl p-6 hover-lift text-center flex flex-col justify-between shadow-xl">
                     <div>
-                        <span class="text-[10px] text-neo-charcoal tracking-[0.1em] uppercase block mb-2 font-bold">Grand Finale Gala</span>
-                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-2">Grand Gala & Orchestra</h3>
-                        <p class="text-sm text-neo-charcoal/80 font-medium">Concerto performances featuring all masterclass participants accompanied by orchestra, followed by a festive celebratory reception.</p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neo-gold">Climax Event</span>
+                        <h3 class="font-serif text-2xl font-bold text-white mt-2">Grand Gala Concert</h3>
+                        <p class="text-xs text-neo-rose mt-2 font-light">Concerto performances with orchestra featuring all participants, followed by an exclusive reception.</p>
                     </div>
-                    <div class="mt-8 flex items-end justify-between border-t border-neo-charcoal/20 pt-4">
-                        <div class="font-sans text-xl font-bold text-neo-charcoal">€15</div>
-                        <button onclick="openTicketModal('Grand Gala with Orchestra & Reception')" class="w-10 h-10 rounded-full bg-neo-charcoal flex items-center justify-center text-neo-gold group-hover:scale-110 transition-all shadow-lg">
-                            <i class="fa-solid fa-ticket"></i>
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-neo-gold my-4">€15.00</div>
+                        <button onclick="openTicketModal('Grand Gala Concert & Reception (€15)')" class="w-full py-2.5 bg-neo-gold text-neo-charcoal font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white transition-colors">
+                            Reserve Gala Ticket
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="venue" class="py-32 relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-neo-terracotta block mb-4">Location & Accommodation</span>
-            <h2 class="font-serif text-4xl sm:text-5xl font-bold text-neo-charcoal mb-6">Château d'Acoz & Lodging</h2>
-            <div class="space-y-6 text-neo-muted text-base font-light max-w-2xl mx-auto leading-relaxed">
-                <p>
-                    All academy participants are accommodated in nearby comfortable gîtes at <strong>Domaine du Château de Lausprelle</strong> or with welcoming local Acoz host families to preserve a peaceful community environment.
-                </p>
-                <p>
-                    Practice facilities and masterclass salons are organized in <strong>walking distance</strong> from the historic Château d'Acoz. Additionally, <strong>4 daily shuttles</strong> will be organized between the accommodation gîtes and the masterclass location for effortless daily transit.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="apply" class="py-32 bg-[#F4EFEB]/50 relative border-t border-neo-rose/40">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="neoclass-card rounded-[3rem] p-8 sm:p-16 shadow-xl text-center">
-                <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-neo-goldDark block mb-4">Admissions 2026</span>
-                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-neo-charcoal mb-6">Secure Your Place</h2>
-                <p class="text-neo-muted text-base font-light mb-10 max-w-xl mx-auto leading-relaxed">
-                    Ready to join us at Château d'Acoz for an unforgettable week of musical growth and mindfulness? Complete our official registration form below.
-                </p>
-
-                <div class="space-y-6 max-w-md mx-auto">
-                    <a href="https://forms.gle/your-application-form-link" target="_blank" rel="noopener noreferrer" class="block w-full py-5 rounded-full bg-neo-terracotta text-white font-medium hover:bg-neo-terracottaDark hover:shadow-xl transition-all uppercase tracking-widest text-xs">
-                        <i class="fa-solid fa-file-pen mr-2"></i> Open Full Application Form
-                    </a>
-                    <p class="text-[11px] text-neo-muted font-light">
-                        You will be redirected to our secure application portal to submit your repertoire and video audition link.
+    <section id="venue" class="py-24 bg-neo-sand/40 border-y border-neo-rose/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-neo-terracotta">Location & Accommodation</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-neo-charcoal leading-tight">
+                        Château d'Acoz & Lodging Facilities
+                    </h2>
+                    <p class="text-neo-muted text-base font-light leading-relaxed">
+                        All academy participants are comfortably accommodated in nearby walkable gîtes at <strong>Domaine du Château de Lausprelle</strong> or with welcoming local Acoz host families to preserve a peaceful community environment.
                     </p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/80 border border-neo-rose">
+                            <div class="w-10 h-10 rounded-xl bg-neo-sand text-neo-terracotta flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-person-walking"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-lg font-bold text-neo-charcoal">Practice Facilities in Walking Distance</h4>
+                                <p class="text-xs text-neo-muted font-light leading-relaxed mt-1">
+                                    Dedicated acoustic practice salons equipped with grand pianos are organized within short walking distance from the Château.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/80 border border-neo-rose">
+                            <div class="w-10 h-10 rounded-xl bg-neo-sand text-neo-terracotta flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-van-shuttle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-lg font-bold text-neo-charcoal">4 Scheduled Daily Shuttles</h4>
+                                <p class="text-xs text-neo-muted font-light leading-relaxed mt-1">
+                                    Four organized shuttle services run daily between accommodation sites, practice rooms, and the main masterclass location.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="glass-card-accent p-8 sm:p-10 rounded-3xl space-y-6">
+                        <h3 class="font-serif text-2xl font-bold text-neo-charcoal">Heritage & Practice Environment</h3>
+                        <p class="text-sm text-neo-muted leading-relaxed font-light">
+                            Protective acoustic and physical measures safeguard the historical heritage of Château d'Acoz. Participants enjoy seamless access to tuned grand pianos, peaceful park grounds, and quiet study areas throughout the 7-day session.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-neo-rose/60 text-xs">
+                            <div>
+                                <span class="font-bold text-neo-charcoal uppercase">Accommodation</span>
+                                <p class="text-neo-muted font-light mt-1">Domaine de Lausprelle & Acoz Host Families</p>
+                            </div>
+                            <div>
+                                <span class="font-bold text-neo-charcoal uppercase">Shuttle Times</span>
+                                <p class="text-neo-muted font-light mt-1">Morning, Noon, Afternoon & Evening</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-neo-charcoal text-white pt-20 pb-10 text-center border-t border-white/10">
-        <div class="mb-8">
-            <div class="w-12 h-12 rounded-full border border-white/20 mx-auto flex items-center justify-center mb-6 overflow-hidden bg-white/10">
-                <img src="logo.png" alt="CF" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/50x50/2D2826/C59B27?text=CF';">
+    <section id="apply" class="py-24 bg-white relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card bg-neo-cream/40 rounded-3xl p-8 sm:p-12 shadow-sm border border-neo-rose">
+                <div class="text-center mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-neo-terracotta">Application Form</span>
+                    <h2 class="font-serif text-4xl font-bold text-neo-charcoal mt-1">Secure Your Place</h2>
+                    <p class="text-neo-muted text-sm mt-2 font-light">Submit your details below to apply for the summer academy session.</p>
+                </div>
+
+                <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-medium text-neo-charcoal mb-2">First Name *</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white border border-neo-rose focus:border-neo-gold outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-neo-charcoal mb-2">Last Name *</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white border border-neo-rose focus:border-neo-gold outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-medium text-neo-charcoal mb-2">Email Address *</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white border border-neo-rose focus:border-neo-gold outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-neo-charcoal mb-2">Phone / WhatsApp *</label>
+                            <input type="tel" required class="w-full px-4 py-3 rounded-xl bg-white border border-neo-rose focus:border-neo-gold outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-neo-charcoal mb-2">Selected Track / Option *</label>
+                        <select id="package-select" required class="w-full px-4 py-3 rounded-xl bg-white border border-neo-rose focus:border-neo-gold outline-none text-sm text-neo-charcoal font-medium">
+                            <option value="Solo Premium (€800)">Solo Premium (€800)</option>
+                            <option value="Solo Pure (€600)">Solo Pure (€600)</option>
+                            <option value="Solo Express (€400)">Solo Express (€400)</option>
+                            <option value="Concerto Premium (€1,500)">Concerto Premium (€1,500)</option>
+                            <option value="Concerto Pure (€1,200)">Concerto Pure (€1,200)</option>
+                            <option value="Belgian Academy Student (€350)">Belgian Music Academy Student Track (€350)</option>
+                            <option value="Passive Auditor (€150)">Passive Auditor Pass (€150)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-neo-charcoal mb-2">Audition Video Link (YouTube/Vimeo)</label>
+                        <input type="url" placeholder="https://..." class="w-full px-4 py-3 rounded-xl bg-white border border-neo-rose focus:border-neo-gold outline-none text-sm">
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-neo-terracotta text-white font-medium hover:bg-neo-terracotta_dark transition-all text-xs uppercase tracking-widest shadow-md">
+                        Submit Application
+                    </button>
+                </form>
+
+                <div class="mt-8 pt-6 border-t border-neo-rose/60 text-center">
+                    <p class="text-xs text-neo-muted font-light mb-3">Prefer filling out a full external application form?</p>
+                    <a href="https://fillout.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold text-neo-terracotta hover:underline">
+                        Open Full External Application Form <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
             </div>
-            <p class="font-serif text-3xl font-light mb-2">César Franck Summer Academy</p>
-            <p class="text-xs font-light text-white/50 tracking-widest uppercase">Château d'Acoz, Belgium</p>
         </div>
-        <div class="w-24 h-[1px] bg-white/10 mx-auto my-8"></div>
-        <p class="text-[10px] text-white/40 uppercase tracking-widest">&copy; 2026 César Franck Academy. All rights reserved.</p>
+    </section>
+
+    <footer class="bg-neo-charcoal text-white py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <p class="font-serif text-2xl text-neo-gold">César Franck Summer Academy</p>
+            <p class="text-xs font-light text-neo-rose/80">Château d'Acoz • Gerpinnes, Belgium</p>
+            <p class="text-[10px] uppercase tracking-widest text-neo-muted mt-4">© César Franck Summer Academy. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Ticket Modal -->
-    <div id="ticket-modal" class="fixed inset-0 bg-neo-charcoal/70 backdrop-blur-md z-[100] hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
-        <div class="bg-[#FBF9F5] rounded-[2rem] max-w-md w-full p-10 relative shadow-2xl transform scale-95 transition-transform duration-300 border border-neo-rose" id="ticket-modal-content">
-            <button onclick="closeTicketModal()" class="absolute top-6 right-6 text-neo-muted hover:text-neo-charcoal transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-white">
-                <i class="fa-solid fa-xmark text-lg"></i>
+    <!-- Concert Ticket Modal -->
+    <div id="ticket-modal" class="fixed inset-0 bg-neo-charcoal/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 relative shadow-2xl border border-neo-rose">
+            <button onclick="closeTicketModal()" class="absolute top-4 right-4 text-neo-muted hover:text-neo-charcoal">
+                <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neo-goldDark block mb-2">Reserve Concert Tickets</span>
-            <h3 class="font-serif text-3xl font-bold text-neo-charcoal mb-6" id="modal-concert-name"></h3>
-            
-            <form onsubmit="handleTicketSubmit(event)" class="space-y-5">
-                <div class="relative">
-                    <input type="text" placeholder="Full Name" required class="w-full px-5 py-4 rounded-xl border border-neo-rose bg-white text-sm outline-none focus:ring-2 focus:ring-neo-terracotta shadow-sm text-neo-charcoal">
-                </div>
-                <div class="relative">
-                    <input type="email" placeholder="Email Address" required class="w-full px-5 py-4 rounded-xl border border-neo-rose bg-white text-sm outline-none focus:ring-2 focus:ring-neo-terracotta shadow-sm text-neo-charcoal">
-                </div>
-                <div class="flex items-center gap-4 bg-white px-5 py-3 rounded-xl border border-neo-rose shadow-sm">
-                    <label class="text-sm text-neo-muted flex-grow font-medium">Number of Tickets</label>
-                    <input type="number" min="1" max="10" value="1" required class="w-20 px-3 py-2 rounded-lg bg-[#F4EFEB] border-none text-center outline-none text-neo-charcoal font-semibold">
-                </div>
-                <button type="submit" class="w-full py-4 mt-4 rounded-xl bg-neo-terracotta text-white text-xs uppercase tracking-widest font-bold hover:bg-neo-terracottaDark transition-colors shadow-lg">
-                    Confirm Reservation
+            <h3 class="font-serif text-2xl font-bold text-neo-charcoal mb-1">Reserve Tickets</h3>
+            <p id="modal-concert-name" class="text-sm text-neo-terracotta font-medium mb-6"></p>
+            <form onsubmit="handleTicketSubmit(event)" class="space-y-4">
+                <input type="text" placeholder="Your Full Name" required class="w-full px-4 py-2.5 rounded-lg border border-neo-rose text-sm outline-none focus:border-neo-gold">
+                <input type="email" placeholder="Email Address" required class="w-full px-4 py-2.5 rounded-lg border border-neo-rose text-sm outline-none focus:border-neo-gold">
+                <input type="number" min="1" max="6" value="1" required class="w-full px-4 py-2.5 rounded-lg border border-neo-rose text-sm outline-none focus:border-neo-gold">
+                <button type="submit" class="w-full py-3 rounded-lg bg-neo-terracotta text-white text-xs uppercase tracking-widest font-medium hover:bg-neo-terracotta_dark transition-colors">
+                    Confirm Ticket Reservation
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-8 right-8 bg-neo-charcoal text-white px-6 py-4 rounded-2xl shadow-2xl z-[100] text-sm font-medium flex items-center gap-4 transform translate-y-20 opacity-0 transition-all duration-500 ease-out border border-white/20">
-        <div class="w-8 h-8 rounded-full bg-neo-gold flex items-center justify-center text-neo-charcoal">
-            <i class="fa-solid fa-check"></i>
-        </div>
-        <span id="toast-message" class="tracking-wide font-light"></span>
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-white border border-neo-terracotta text-neo-charcoal px-6 py-4 rounded-xl shadow-xl hidden z-50 text-sm font-medium flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-neo-terracotta"></i> <span id="toast-message"></span>
     </div>
 
     <script>
-        // Mobile Menu Logic
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Package Selection Helper
-        function selectPackage(name) {
-            showToast(`Selected: ${name}`);
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
 
-        // Modal Logic
-        const modal = document.getElementById('ticket-modal');
-        const modalContent = document.getElementById('ticket-modal-content');
+        function selectPackage(name) {
+            const select = document.getElementById('package-select');
+            if (select) {
+                select.value = name;
+            }
+            document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+            showToast(`Selected ${name}`);
+        }
 
         function openTicketModal(name) {
             document.getElementById('modal-concert-name').innerText = name;
-            modal.classList.remove('hidden');
-            
-            setTimeout(() => {
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                modalContent.classList.remove('scale-95');
-                modalContent.classList.add('scale-100');
-            }, 10);
+            document.getElementById('ticket-modal').classList.remove('hidden');
         }
 
         function closeTicketModal() {
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            document.getElementById('ticket-modal').classList.add('hidden');
         }
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeTicketModal();
-        });
 
         function handleTicketSubmit(e) {
             e.preventDefault();
             closeTicketModal();
-            showToast("Reservation confirmed. See you at the salon.");
+            showToast("Ticket reservation confirmed! Details sent to your email.");
         }
 
-        let toastTimeout;
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showToast("Application submitted successfully. We will be in touch!");
+            e.target.reset();
+        }
+
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-message').innerText = msg;
-            
-            clearTimeout(toastTimeout);
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            
-            toastTimeout = setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 4000);
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3500);
         }
     </script>
 </body>
